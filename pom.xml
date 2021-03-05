@@ -44,7 +44,18 @@
   <build>
     <finalName>JavaVulnerableLab</finalName>
 	  <plugins>
-	  			<!-- SpotBugs Static Analysis -->
+		  	<plugin>
+              			<groupId>org.owasp</groupId>
+              			<artifactId>dependency-check-maven</artifactId>
+              			<executions>
+                  			<execution>
+                      				<goals>
+                          				<goal>check</goal>
+                      				</goals>
+                  			</execution>
+              			</executions>
+            		</plugin>
+	  		<!-- SpotBugs Static Analysis -->
 			<plugin>
 			    <groupId>com.github.spotbugs</groupId>
   			    <artifactId>spotbugs-maven-plugin</artifactId>
