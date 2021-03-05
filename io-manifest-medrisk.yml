@@ -1,0 +1,11 @@
+template: medium-risk
+application:
+  projectLanguage: Java  
+  platformVersion: Java 8  
+  buildSystem: Maven   
+environment:
+  jiraProjectName: JAV
+  testDeploymentRoot: JavaVulnerableLab  
+security:
+  pipeline:
+    toolchain: "OpenSource"
