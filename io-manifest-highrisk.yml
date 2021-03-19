@@ -8,4 +8,4 @@ environment:
   testDeploymentRoot: JavaVulnerableLab  
 security:
   pipeline:
-    toolchain: "OpenSource"
+    toolchain: "Synopsys"
