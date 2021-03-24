@@ -67,8 +67,8 @@ public class InsecureEncryption {
     final String secretKey = "ssshhhhhhhhhhh!!!!";
      
     String originalString = "howtodoinjava.com";
-    String encryptedString = AES.encrypt(originalString, secretKey) ;
-    String decryptedString = AES.decrypt(encryptedString, secretKey) ;
+    String encryptedString = InsecureEncryption.encrypt(originalString, secretKey) ;
+    String decryptedString = InsecureEncryption.decrypt(encryptedString, secretKey) ;
      
     System.out.println(originalString);
     System.out.println(encryptedString);
