@@ -53,7 +53,7 @@ public class LoginValidator extends HttpServlet {
                                    ResultSet rs2=null;
                                    Statement stmt = con.createStatement();  
                                    rs=stmt.executeQuery("select * from users where username='"+user+"' and password='"+pass+"'");
-                                   rs2=stmt.executeQuery("select * from users where username='"+user+"' and password='"+pass+"'");
+                                  // rs2=stmt.executeQuery("select * from users where username='"+user+"' and password='"+pass+"'");
                                    if(rs != null && rs.next()){
                                    HttpSession session=request.getSession();
                                    session.setAttribute("isLoggedIn", "1");
