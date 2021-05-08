@@ -24,7 +24,7 @@ jobs:
     
     - name: Start IO Server
       run: |
-        docker login --username rahulguna10 --password ${{secrets.DOCKER_TOKEN}}
+        docker login --username nikibian --password ${{secrets.DOCKER_TOKEN}}
         docker pull rahulguna10/io-iq:2021-01
         docker pull rahulguna10/io-workflowengine:2021-01
         docker run --name io-iq -p 9090:9090 -e spring.datasource.url=${{secrets.POSTGRES_SERVER}} -e io.datasource.type=sql rahulguna10/io-iq:2021-01 &
