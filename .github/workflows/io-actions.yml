@@ -25,9 +25,9 @@ jobs:
     - name: Start IO Server
       run: |
         docker login --username nikibian --password ${{secrets.DOCKER_TOKEN}}
-        docker pull rahulguna10/io-iq:2021-01
+        docker pull nikibian/io-server:1.0.339
         docker pull rahulguna10/io-workflowengine:2021-01
-        docker run --name io-iq -p 9090:9090 -e spring.datasource.url=${{secrets.POSTGRES_SERVER}} -e io.datasource.type=sql rahulguna10/io-iq:2021-01 &
+        docker run --name io-server -p 9090:9090 -e spring.datasource.url=${{secrets.POSTGRES_SERVER}} -e io.datasource.type=sql rahulguna10/io-iq:2021-01 &
         docker run --name io-workflowengine -p 9091:9091 rahulguna10/io-workflowengine:2021-01 &
     
     - name: Check IO Server Status
