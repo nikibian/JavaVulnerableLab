@@ -1,17 +1,45 @@
 version: "1"
+project:
+  name: ${scm.git.repo}
+  branch: ${scm.git.branch}
+  revision:
+    name: ${scm.git.commit}
+    date: ${scm.git.commit.date}
+capture:
+  build:
+    cleanCommands:
+    - shell: [mvn, -B, -f, pom.xml, clean]
+    buildCommands:
+    - shell: [mvn, -B, -f, pom.xml, install]
+  fileSystem:
+    ears:
+      extensions: [ear]
+      files:
+      - directory: ${project.projectDir}
+    java:
+      files:
+      - directory: ${project.projectDir}
+    javascript:
+      files:
+      - directory: ${project.projectDir}
+      - excludeRegex: node_modules|bower_components|vendor
+    php:
+      files:
+      - directory: ${project.projectDir}
+    python:
+      files:
+      - directory: ${project.projectDir}
+    ruby:
+      files:
+      - directory: ${project.projectDir}
+    wars:
+      extensions: [war]
+      files:
+      - directory: ${project.projectDir}
+analyze:
+  mode: central
 install:
   coverity:
-    version: latest
-project:
-  name: "msubbarao/JavaVulnerableLab"
-  branch: "origin/master"
-  revision:
-    name: "msubbarao/JavaVulnerableLab"
-    date: "2021-03-24T14:25:30Z"
-  captureDir: .synopsys/polaris
-capture:
-  coverity:
-    buildless:
-      project:
-        languages:
-          - "java"
+    version: default
+serverUrl: https://poc213.polaris.synopsys.com
+
